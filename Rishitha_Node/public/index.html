@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rishitha Rani - Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ecf0f1;
+        }
+
+        .container {
+            display: Grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            grid-template-rows: 0.2fr auto 0.2fr; 
+            grid-template-areas: 
+                "nav nav nav nav"
+                "profile skills skills skills"
+                "about about about about"
+                "education education education education"
+                "experience experience experience experience"
+                "projects projects projects projects"
+                "certifications certifications blogs blogs"
+                "footer footer footer footer";
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto; 
+            background-color: #ffffff;
+        }
+        * {
+            box-sizing: border-box;
+        }
+
+
+        #nav, #about, #education, #experience, #projects, #footer {
+            padding: 20px;
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+
+        #profile, #skills, #certifications, #blogs{
+            padding: 20px;
+        }
+        #certifications h2, #blogs h2, #about h2, #skills h2, #education h2, #experience h2, #projects h2,footer h3 {
+            margin-top: 0;
+            padding-top: 0;
+        }
+
+        #about:target, #skills:target, #education:target, #experience:target, #projects:target, #certifications:target, #blogs:target, #contact:target {
+            background-color: #1395e6;
+        }
+
+
+        nav {
+            grid-area: nav;
+            background-color: #001F3F;
+            text-align: center;
+            padding: 5px;
+            font-size: 1.2em;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+        }
+        .nav a {
+            display: inline-block;
+            color: #fff;
+            padding: 10px;
+            text-decoration: underline;
+        }
+        .nav a:hover {
+            background-color: #b1abab;
+            color: #1B1B2A;
+            border-radius: 5px;
+        }
+        .nav-menu .icon {
+            display: none;
+        }
+        #profile {
+            grid-area: profile;
+            text-align: center;
+            background: #F2F2F2;
+            color: #00274D;
+            margin-left: 20px;
+        }
+        #profile img {
+            width: 150px;
+            height: 150px;
+        }
+        #profile h3 {
+            margin-top: 10px;
+            margin-bottom: 5px;
+            font-weight: 2em;
+        }
+        #profile h4 {
+            margin: 0;
+            font-weight: 1.5em;
+        }
+        #skills {
+            grid-area: skills;
+            background: #0f5103;
+            color: #F5F5DC;
+            margin-right: 20px;
+        }
+        #about {
+            grid-area: about;
+            background-color: #F5F5F5;
+            color: #1A1A1A;
+        }
+        #education {
+            grid-area: education;
+            background: #470188;
+            color: #FFF4CC;
+        }
+        .educationarea, .university{
+            margin-left: 20px;
+        }
+        #education p{
+            margin-left: 40px;
+        }
+        .info {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            grid-gap: 10px;
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+        .university {
+            grid-column: 1;
+        }
+        .year {
+            grid-column: 2;
+            text-align: right;
+        }
+        #experience {
+            grid-area: experience;
+            background: #005F5F;
+            color: #FAFAFA;
+            padding: 20px;
+        }
+        .experience-box-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 15px;
+        }
+        .experience-box {
+            background-color: #F2F2F2;
+            color: #00274D;
+            padding: 15px;
+            border-radius: 5px;
+        }
+        #projects {
+            grid-area: projects;
+            background-color: #4169E1;
+            color: #FFFDD0;
+        }
+        .project-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            gap: 20px;
+            justify-content: center;
+            text-align: center;
+        }
+        .project-card {
+            background: #FFFFFF;
+            color: #333333;
+            padding: 15px;
+        }
+        .project-card img {
+            width: 50%;
+            height: auto;
+        }
+        .view-more {
+            background-color: blue;
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+        }
+        .view-more:hover {
+            background-color: green;
+        }
+        #certifications {
+            grid-area: certifications;
+            background-color: #a30303;
+            color: #FFFFFF;
+            padding: 20px;
+            margin-left: 20px;
+        }
+        #certifications h2{
+            text-align: center;
+        }
+        #certifications p{
+            background-color: #E0E0E0;
+        }
+        #blogs {
+            grid-area: blogs;
+            background-color: #a30303;
+            color: #FFFFFF;
+            padding: 20px;
+            margin-right: 20px;
+        }
+        #blogs h2 {
+            text-align: center;
+            padding-top: 0px;
+        }
+        .blog-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+        .blog-box {
+            background: #FFF4CC;
+            padding: 10px;
+            border-radius: 3px;
+            text-align: center;
+            box-sizing: border-box;
+            height: 150px;
+            color: #4D0000;
+        }
+        .blog-box img {
+            width: 50px;
+            height: 40px;
+            padding: 5px;
+        }
+        .blog-box h3 {
+            margin-top: 5px;
+            margin-bottom: 2px;
+        }
+        .blog-box p {
+            margin: 0;
+            height: 60%;
+        }
+        footer {
+            grid-area: footer;
+            height: 50px;
+            background-color: #0d0808;
+            color: #FFD700;
+            height: 80px;
+            max-width: 1200px;
+            width: 100%;
+            margin: 0px auto;
+        }
+        .contact-icons {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 5px;
+            justify-items: center;
+            padding-left: 50px;
+        }
+        footer#contact h3 {
+            margin: 0;
+            font-size: 1.5em;
+            padding-top: 10px;
+            margin-left: 20px;
+        }
+        .contact-icons a img {
+            width: 30px;
+            height: 30px;
+        }
+        .contact-icons a img:hover {
+            transform: scale(1.2);
+        }
+
+        @media screen and (min-width: 501px) and (max-width: 700px) {
+        #blogs {
+            width: 100%;
+            padding: 10px;
+            align-items: center;
+        }
+        .blog-box{
+            display: grid;
+            grid-template-columns: 1fr;
+        }
+        .blog-box h3 {
+            font-size:16px;
+        }
+        .blog-box p {
+            font-size:14px;
+        }
+        .project-grid {
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        }
+
+
+        @media (max-width: 500px) {
+        .container {
+            display: grid;
+            grid-template-areas: 
+                "nav"
+                "profile"
+                "skills"
+                "about"
+                "education"
+                "experience"
+                "projects"
+                "certifications"
+                "blogs"
+                "footer";
+            grid-template-columns: 1fr;
+            margin: 0px;
+        }
+
+        #profile, #skills, #about, #education, #experience, #projects, #certifications{
+            align-items: center;
+            width: 100%;
+            margin-left: 0;
+            margin-right: 0;
+            box-sizing: border-box;
+        }
+
+        .nav-menu {
+            grid-template-columns: 1fr;
+            width: 98%;
+        }
+        .nav-menu a {
+            display: none;
+        }
+
+        .nav-menu .icon {
+            display: block;
+        }
+
+        .nav-menu.responsive a {
+            display: block;
+        }
+        footer{
+            margin: 0px;
+        }
+        
+        body {
+            font-size: 14px;
+        }
+        h3 {
+            font-size: 18px;
+        }
+        p, li {
+            font-size: 13px;
+        }
+        .experience-box-container {
+            grid-template-columns: 1fr;
+            padding: 10px;
+        }
+
+        .experience-box {
+            width: 100%;
+        }
+        .project-grid {
+            grid-template-columns: 1fr;
+            gap: 10px;
+        }
+        .project-card {
+            width: 80%;
+            margin: 0 auto;
+            height: 220px;
+            padding: 10px;
+            border-radius: 2px;
+        }
+
+        .project-card img {
+            width: 40%;
+            height: auto;
+            margin-bottom: 10px;
+            float: none;
+        }
+
+        .project-card h3,
+        .project-card p {
+
+            text-align: center;
+            margin-top: 0px;
+            margin-bottom: 5px;
+        }
+
+        .view-more{
+            padding-bottom: 6px;
+        }
+        #blogs{
+            width: 100%;
+        }
+        .blog-box{
+            height: 100px;
+        }
+        }
+            
+  
+    </style>
+</head>
+<body>     
+    <!-- Navigation Menu -->
+    <header class="nav" class="wrapper">
+        <nav id="navMenu" class="nav-menu" >
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#education">Education</a>
+            <a href="#experience">Experience</a>
+            <a href="#projects">Projects</a>
+            <a href="#certifications">Certifications</a>
+            <a href="#blogs">Blogs</a>
+            <a href="#contact">Contact</a>
+            <a href="javascript:void(0);" class="icon" onclick="responsiveMenu()">
+                <i class="fa fa-bars"></i>
+            </a>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+        <section id="profile">
+            <img src="images/profilepic.jpeg" alt="Profile Picture">
+            <h3>Rishitha Rani</h3>
+            <h4>Full Stack Developer</h4>                       
+        </section>
+
+        <section id="skills">
+            <article>
+                <h2>Skills</h2>
+                <ul>
+                    <li><strong>Data Engineering</strong>: Data Integration, Data Warehousing, ETL pipelines (Advanced)</li>
+                    <li><strong>Adobe</strong>: Adobe Experience Platform, Adobe Journey Optimizer, Adobe Experience Manager (Intermediate)</li>
+                    <li><strong>Salesforce</strong>: Salesforce CDP, Salesforce Marketing Cloud, Salesforce Analytics Cloud (Intermediate)</li>
+                    <li><strong>Programming Languages</strong>: Python, Java, SQL (Advanced)</li>
+                    <li><strong>Cloud Technologies</strong>: Microsoft Azure, Amazon Web Services (Intermediate)</li>
+                    <li><strong>Database Management</strong>: MongoDB, MySQL, Oracle, MySQL Server (Intermediate)</li>
+                </ul>
+            </article>
+        </section>
+
+        <!-- About Me Section -->
+        <section id="about">
+            <h2>About Me</h2>
+            <p>I am a problem-solver with a keen interest in data engineering and data-driven decision making. With experience in data validation, segmentation, and journey optimization, I thrive on turning complex data into actionable insights. I am always looking for opportunities to grow and contribute to impactful projects that enhance business operations.</p>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education">
+            <h2>Education</h2>
+            <div class="educationarea">
+                <h4>Master's in Computer Science</h4>
+                <div class="info">
+                    <span class="university">University of New Haven, United States</span>
+                    <span class="year">2024 - Present</span>
+                </div>
+                <p>Relevant Courses: Web-Database Application Development, Data Mining, Distributed Database Systems, Introduction to AI.</p>
+            </div>
+
+            <div class="educationarea">
+                <h4>Bachelor's in Electronics and Communication Engineering</h4>
+                <div class="info">
+                    <span class="university">Rajiv Gandhi University of Knowledge Technologies, India</span>
+                    <span class="year">2018 - 2022</span>
+                </div>
+                <p>Relevant Courses: Digital Communications, Speech Communication, Analog Communications.</p>
+            </div>
+        </section>
+
+        <!-- Experience Section-->
+        <section id="experience">
+            <h2>Experience</h2>
+            <div class="experience-box-container">
+                <div class="experience-box">
+                    <h3>Deloitte Consulting India Private Limited</h3>
+                    <p>Analyst</p>
+                    <p>Highly dedicated Data Engineer with 1 year of experience in data analytics and science domain. Competent in Adobe Experience Platform (AEP), Adobe Journey Optimizer (AJO), Customer Journey Analytics (CJA), Python, SQL, and Microsoft Azure.</p>
+                </div>
+                <div class="experience-box">
+                    <h3>Tata Consultancy Services</h3>
+                    <p>Analyst</p>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects">
+            <h2>Projects</h2>
+            <div class="project-grid">
+                <div class="project-card">
+                    <img src="images/Project1.jpg" alt="Project 1">
+                    <h3>Project 1</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <a href="https://github.com/rishitharani24">
+                    <button class="view-more">View More</button>
+                    </a>
+                </div>
+                <div class="project-card">
+                    <img src="images/Project2.jpg" alt="Project 2">
+                    <h3>Project 2</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <a href="https://github.com/rishitharani24">
+                    <button class="view-more">View More</button>
+                    </a>
+                </div>
+                <div class="project-card">
+                    <img src="images/Project3.jpg" alt="Project 3">
+                    <h3>Project 3</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                    <a href="https://github.com/rishitharani24/Data-Mining---Team-Synergy">
+                    <button class="view-more">View More</button>
+                    </a>
+                </div>
+                <div class="project-card">
+                    <img src="images/Project4.jpg" alt="Project 4">
+                    <h3>Project 4</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                    <a href="https://github.com/rishitharani24/AI_Team---ReinforceX">
+                    <button class="view-more">View More</button>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certifications Section-->
+        <section id="certifications">
+            <h2>Certifications</h2>
+            <ul>
+                <li>Microsoft Certified: Azure Fundamentals (AZ-900)</li>
+                <li>Python Programming (SkillUp)</li>
+                <li>AWS Cloud Practitioner and Solution Architect</li>
+                <li>4.0 Tech 101 Certified</li>
+                <li>Salesforce Certified Data Cloud Consultant</li>
+                <li>Salesforce Certified AI Associate</li>
+            </ul>
+        </section>
+
+        <!-- Blogs Section -->
+        <section id="blogs">
+            <h2>Blogs</h2>
+            <div class="blog-container">
+                <div class="blog-box">
+                    <img src="images/blogs.jpg" alt="Blog 1">
+                    <h3>Blog 1</h3>
+                    <p>Lorem ipsum dolor sit</p>
+                </div>
+                <div class="blog-box">
+                    <img src="images/blogs.jpg" alt="Blog 2">
+                    <h3>Blog 2</h3>
+                    <p>Lorem ipsum dolor sit</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contact">
+        <h3>Contact Me</h3>
+        <div class="contact-icons">
+            <a href="mailto:rpaka1@unh.newhaven.edu" target="_blank"><img src="images/mail.png" alt="Email"></a>
+            <a href="https://www.linkedin.com/in/rishitha-rani-pakam-09ab78248/" target="_blank"><img src="images/linkedin.png" alt="LinkedIn"></a>
+            <a href="https://github.com/rishitharani24" target="_blank"><img src="images/github.png" alt="GitHub"></a>
+        </div>
+    </footer>
+
+    <script>
+        function responsiveMenu() {
+            var menu = document.getElementById("navMenu");
+            if (menu.className === "nav-menu") {
+                menu.className = menu.className + " responsive";
+            } else {
+                menu.className = "nav-menu";
+            }
+        }
+    </script>
+</body>
+</html>
